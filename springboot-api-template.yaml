@@ -19,7 +19,7 @@ objects:
   spec:
     source:
       git:
-        uri: https://github.com/shanpagoti/Springboot-template.git
+        uri: https://github.com/shanpagoti/springboot-app.git
     strategy: 
       type: "Docker"
     output:
