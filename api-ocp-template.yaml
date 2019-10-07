@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: SpringBootAPI
+  name: shanapi
 objects:
 - apiVersion: v1
   kind: ImageStream
   metadata:
     labels:
-      app: testapi
-      name: testapi
+      app: shanapi
+    name: shanapi
   spec:
     tags:
-    - name: "testapi"
+    - name: "shanapi"
 - apiVersion: "v1"
   kind: "BuildConfig"
   metadata:
-    name: "testapi"
+    name: "shanapi"
   spec:
     source:
       git:
@@ -25,7 +25,7 @@ objects:
     output:
       to:
         kind: "ImageStreamTag"
-        name: "testapi:latest"
+        name: "shanapi:latest"
     triggers:
     - generic:
         secret: b725254e6534fd70
@@ -39,13 +39,13 @@ objects:
     creationTimestamp: null
     generation: 7
     labels:
-      app: testapi
-      name: testapi
+      app: shanapi
+    name: shanapi
   spec:
     replicas: 1
     selector:
-      app: testapi
-      deploymentconfig: testapi
+      app: shanapi
+      deploymentconfig: shanapi
     strategy:
       resources: {}
       rollingParams:
@@ -61,8 +61,8 @@ objects:
           openshift.io/generated-by: OpenShiftWebConsole
         creationTimestamp: null
         labels:
-          app: testapi
-          deploymentconfig: testapi
+          app: shanapi
+          deploymentconfig: shanapi
       spec:
         containers:
         - env:
@@ -74,7 +74,7 @@ objects:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.name
-          image: testapi/testapi@sha256:f5f80e5c582c0e5ed010a9057ce5c6458c31f4e28c652d0e1f9397cd543c2b31
+          image: shanapi/shanapi@sha256:f5f80e5c582c0e5ed010a9057ce5c6458c31f4e28c652d0e1f9397cd543c2b31
           imagePullPolicy: Always
           name: shanapi
           resources: {}
@@ -92,5 +92,5 @@ objects:
         - shanapi
         from:
           kind: ImageStreamTag
-          name: testapi:latest
+          name: shanapi:latest
       type: ImageChange
