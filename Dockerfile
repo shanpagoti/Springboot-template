@@ -1,6 +1,7 @@
 # Start with a base image containing Java runtime
 FROM openjdk:8-jdk-alpine
- 
+#FROM registry.redhat.io/openjdk/openjdk-8-rhel8
+
 # Add Maintainer Info
 LABEL maintainer="shan.pagoti@toyota.com"
 
